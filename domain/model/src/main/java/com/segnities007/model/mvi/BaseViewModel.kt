@@ -17,7 +17,8 @@ import kotlinx.coroutines.launch
  * @param E 副作用 (Effect)
  */
 abstract class BaseViewModel<
-    S : Mvi.State,
+    T,
+    S : Mvi.State<T>,
     I : Mvi.Intent,
     E : Mvi.Effect,
 >(
