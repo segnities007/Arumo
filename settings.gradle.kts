@@ -33,3 +33,17 @@ plugins {
 }
 
 include(":composeApp")
+include(":core")
+include(":domain")
+include(":data")
+include(":feature")
+include(":data:repository")
+include(":data:dto")
+include(":data:remote")
+include(":domain:remote")
+include(":domain:repository")
+include(":domain:model")
+include(":domain:usecase")
+include(":core:ui")
+include(":core:common")
+include(":core:navigation")
