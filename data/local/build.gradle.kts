@@ -1,6 +1,13 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
+    id("com.google.devtools.ksp")
+    id("androidx.room")
+    id("org.jetbrains.kotlin.plugin.serialization")
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 kotlin {
@@ -58,8 +65,14 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":domain:model"))
+                implementation(project(":data:dto"))
+
                 implementation(libs.kotlin.stdlib)
-                // Add KMP dependencies here
+                implementation("androidx.room:room-runtime:2.7.2")
+                implementation("androidx.sqlite:sqlite-bundled:2.5.0")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
             }
         }
 
@@ -71,9 +84,6 @@ kotlin {
 
         androidMain {
             dependencies {
-                // Add Android-specific dependencies here. Note that this source set depends on
-                // commonMain by default and will correctly pull the Android artifacts of any KMP
-                // dependencies declared in commonMain.
             }
         }
 
@@ -87,11 +97,6 @@ kotlin {
 
         iosMain {
             dependencies {
-                // Add iOS-specific dependencies here. This a source set created by Kotlin Gradle
-                // Plugin (KGP) that each specific iOS target (e.g., iosX64) depends on as
-                // part of KMP’s default source set hierarchy. Note that this source set depends
-                // on common by default and will correctly pull the iOS artifacts of any
-                // KMP dependencies declared in commonMain.
             }
         }
     }
