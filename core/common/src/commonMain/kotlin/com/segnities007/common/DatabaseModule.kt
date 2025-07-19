@@ -4,7 +4,8 @@ import com.segnities007.local.Database
 import com.segnities007.local.createRoomDatabase
 import org.koin.dsl.module
 
-val databaseModule = module {
-    single { createRoomDatabase() }
-    single { get<Database>().storageDao() }
-}
+val databaseModule =
+    module {
+        single { createRoomDatabase() }
+        single { get<Database>().storageDao() }
+    }
