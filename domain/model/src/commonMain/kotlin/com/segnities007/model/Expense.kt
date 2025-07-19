@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 
-@Entity(tableName = "items")
+@Entity(tableName = "expenses")
 data class Expense(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
