@@ -35,18 +35,19 @@ kotlin {
         val desktopMain by getting
 
         androidMain.dependencies {
-            implementation(compose.preview)
+            implementation(project(":data:local"))
+            implementation(project(":core:common"))
             implementation(libs.androidx.activity.compose)
+            implementation("io.insert-koin:koin-android:3.5.6")
         }
         commonMain.dependencies {
+            implementation("io.insert-koin:koin-core:3.5.6")
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

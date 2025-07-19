@@ -56,6 +56,9 @@ kotlin {
             baseName = xcfName
         }
     }
+    jvmToolchain(17)
+    jvm("desktop")
+
 
     // Source set declarations.
     // Declaring a target automatically creates a source set with the same name. By default, the
@@ -71,8 +74,9 @@ kotlin {
                 implementation(libs.kotlin.stdlib)
                 implementation("androidx.room:room-runtime:2.7.2")
                 implementation("androidx.sqlite:sqlite-bundled:2.5.0")
-
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+
+                implementation("io.insert-koin:koin-core:3.5.6")
             }
         }
 
