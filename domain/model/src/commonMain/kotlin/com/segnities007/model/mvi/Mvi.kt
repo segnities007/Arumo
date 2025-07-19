@@ -1,4 +1,4 @@
-package com.segnities007.model
+package com.segnities007.model.mvi
 
 sealed interface Mvi {
     sealed interface State<out T> {

@@ -64,6 +64,7 @@ kotlin {
                 implementation(libs.androidx.appcompat)
                 implementation(libs.material)
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
             }
         }
 
