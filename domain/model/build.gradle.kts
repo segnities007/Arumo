@@ -1,6 +1,13 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
+    id("com.google.devtools.ksp")
+    id("androidx.room")
+    id("org.jetbrains.kotlin.plugin.serialization")
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 kotlin {
@@ -63,8 +70,11 @@ kotlin {
                 implementation(libs.androidx.core.ktx)
                 implementation(libs.androidx.appcompat)
                 implementation(libs.material)
-                implementation(libs.androidx.lifecycle.viewmodel.ktx)
+                implementation(libs.androidx.lifecycle.viewmodel)
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
+
+                implementation("androidx.room:room-runtime:2.7.2")
+                implementation("androidx.sqlite:sqlite-bundled:2.5.0")
             }
         }
 

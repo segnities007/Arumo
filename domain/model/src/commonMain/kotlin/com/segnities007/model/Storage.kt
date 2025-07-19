@@ -1,11 +1,14 @@
 package com.segnities007.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlin.time.ExperimentalTime
 
+@Entity(tableName = "storages")
 data class Storage @OptIn(ExperimentalTime::class) constructor(
-    val id: String = "",
+    @PrimaryKey val id: String = "",
     val hostId: String = "",
     val name: String = "",
     val description: String = "",
@@ -13,5 +16,5 @@ data class Storage @OptIn(ExperimentalTime::class) constructor(
     val expenseIDs: List<String> = emptyList(),
     val createAt: Instant = Clock.System.now(),
     val updateAt: Instant = Clock.System.now(),
-    val editableUserIds: Map<String, Boolean> = emptyMap()
-    )
+    val editableUserIds: Map<String, Boolean> = emptyMap(),
+)

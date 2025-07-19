@@ -1,6 +1,7 @@
 package com.segnities007.model.mvi
 
-import com.segnities007.model.mvi.Mvi
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -18,7 +19,7 @@ abstract class BaseViewModel<
     E : Mvi.Effect,
 >(
     initialViewState: S,
-){
+): ViewModel() {
     val coroutineScope = CoroutineScope(Dispatchers.Main)
     private val _state = MutableStateFlow(initialViewState)
     val state: StateFlow<S> = _state.asStateFlow()
@@ -28,7 +29,7 @@ abstract class BaseViewModel<
     protected abstract fun handleIntent(intent: I)
 
     protected fun handleEffect(effect: E) {
-        CoroutineScope(Dispatchers.Main).launch {
+        viewModelScope.launch {
             _effect.emit(effect)
         }
     }
