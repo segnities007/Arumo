@@ -1,22 +1,16 @@
-package com.segnities007.model
+package com.segnities007.model.mvi
 
+import com.segnities007.model.mvi.Mvi
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-/**
- * MVIの基本的なロジックを提供する抽象ViewModel
- * @param S UIの状態 (State)
- * @param I ユーザーの意図 (Intent)
- * @param E 副作用 (Effect)
- */
 abstract class BaseViewModel<
     T,
     S : Mvi.State<T>,
