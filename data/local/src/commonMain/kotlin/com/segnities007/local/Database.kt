@@ -10,6 +10,6 @@ private const val version = 1
 
 @Database(entities = [Storage::class], version = version)
 @TypeConverters(Converters::class)
-abstract class AppDatabase : RoomDatabase() {
+abstract class Database : RoomDatabase() {
     abstract fun storageDao(): StorageDao
 }
