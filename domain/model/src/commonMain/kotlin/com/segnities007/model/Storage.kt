@@ -7,7 +7,7 @@ import kotlinx.datetime.Instant
 import kotlin.time.ExperimentalTime
 
 @Entity(tableName = "storages")
-data class Storage @OptIn(ExperimentalTime::class) constructor(
+data class Storage(
     @PrimaryKey val id: String = "",
     val hostId: String = "",
     val name: String = "",

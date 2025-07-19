@@ -1,7 +1,7 @@
 package com.segnities007.model
 
 enum class ConsumableCategory(
-    val colorCode: String
+    val colorCode: String,
 ) {
     FOOD("#FF6347"),
     BEVERAGE("#1E90FF"),
@@ -12,5 +12,5 @@ enum class ConsumableCategory(
     CLEANING_LAUNDRY("#00CED1"),
     BABY_PET("#F0E68C"),
     STATIONERY_GOODS("#4682B4"),
-    UNCATEGORIZED("#A9A9A9");
+    UNCATEGORIZED("#A9A9A9"),
 }

@@ -19,7 +19,7 @@ abstract class BaseViewModel<
     E : Mvi.Effect,
 >(
     initialViewState: S,
-): ViewModel() {
+) : ViewModel() {
     val coroutineScope = CoroutineScope(Dispatchers.Main)
     private val _state = MutableStateFlow(initialViewState)
     val state: StateFlow<S> = _state.asStateFlow()

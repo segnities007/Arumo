@@ -1,10 +1,14 @@
 package com.segnities007.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 
+@Entity(tableName = "expenses")
 data class Expense(
-    val id: String = "",
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     val hostId: String = "",
     val name: String = "",
     val amount: Int = 0,

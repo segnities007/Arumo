@@ -8,34 +8,22 @@ import kotlin.time.Instant
 
 class Converters {
     @TypeConverter
-    fun fromStringList(value: List<String>): String {
-        return Json.encodeToString(value)
-    }
+    fun fromStringList(value: List<String>): String = Json.encodeToString(value)
 
     @TypeConverter
-    fun toStringList(value: String): List<String> {
-        return Json.decodeFromString(value)
-    }
+    fun toStringList(value: String): List<String> = Json.decodeFromString(value)
 
     @TypeConverter
-    fun fromStringBooleanMap(value: Map<String, Boolean>): String {
-        return Json.encodeToString(value)
-    }
+    fun fromStringBooleanMap(value: Map<String, Boolean>): String = Json.encodeToString(value)
 
     @TypeConverter
-    fun toStringBooleanMap(value: String): Map<String, Boolean> {
-        return Json.decodeFromString(value)
-    }
+    fun toStringBooleanMap(value: String): Map<String, Boolean> = Json.decodeFromString(value)
 
     @OptIn(ExperimentalTime::class)
     @TypeConverter
-    fun fromInstant(value: Instant): Long {
-        return value.toEpochMilliseconds()
-    }
+    fun fromInstant(value: Instant): Long = value.toEpochMilliseconds()
 
     @OptIn(ExperimentalTime::class)
     @TypeConverter
-    fun toInstant(value: Long): Instant {
-        return Instant.fromEpochMilliseconds(value)
-    }
+    fun toInstant(value: Long): Instant = Instant.fromEpochMilliseconds(value)
 }

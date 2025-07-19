@@ -5,21 +5,18 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import com.segnities007.model.Storage
+import com.segnities007.model.User
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface StorageDao {
+interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsert(storage: Storage)
+    suspend fun upsert(user: User)
 
     @Delete
-    suspend fun delete(storage: Storage)
+    suspend fun delete(user: User)
 
-    @Query("SELECT * FROM storages WHERE id = :id")
-    suspend fun getStorageById(id: String): Storage?
-
-    @Query("SELECT * FROM storages ORDER BY updateAt DESC")
+    @Query("SELECT * FROM users")
     fun getAllStorages(): Flow<List<Storage>>
 }
