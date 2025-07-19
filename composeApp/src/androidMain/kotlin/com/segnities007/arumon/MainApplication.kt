@@ -1,7 +1,7 @@
 package com.segnities007.arumon
 
 import android.app.Application
-import com.segnities007.common.databaseModule
+import com.segnities007.common.storageDatabaseModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 
@@ -10,7 +10,7 @@ class MainApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MainApplication)
-            modules(databaseModule)
+            modules(storageDatabaseModule)
         }
     }
 }

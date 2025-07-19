@@ -1,11 +1,11 @@
 package com.segnities007.common
 
-import com.segnities007.local.Database
-import com.segnities007.local.createRoomDatabase
+import com.segnities007.local.db.StorageDatabase
+import com.segnities007.local.factory.createRoomDatabase
 import org.koin.dsl.module
 
-val databaseModule =
+val storageDatabaseModule =
     module {
         single { createRoomDatabase() }
-        single { get<Database>().storageDao() }
+        single { get<StorageDatabase>().storageDao() }
     }
