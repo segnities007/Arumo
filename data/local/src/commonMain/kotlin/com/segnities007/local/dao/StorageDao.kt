@@ -1,17 +1,16 @@
-package com.segnities007.dto
+package com.segnities007.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import com.segnities007.model.Storage
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface StorageDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun upsert(storage: Storage)
 
     @Delete

@@ -1,4 +1,4 @@
-package com.segnities007.dto
+package com.segnities007.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun upsert(user: User)
 
     @Delete

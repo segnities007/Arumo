@@ -66,7 +66,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":domain:model"))
-                implementation(project(":data:dto"))
 
                 implementation(libs.kotlin.stdlib)
                 implementation("androidx.room:room-runtime:2.7.2")
