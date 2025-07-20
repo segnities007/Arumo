@@ -58,6 +58,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":domain:model"))
+                implementation(project(":domain:repository"))
+                implementation(project(":data:local"))
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here
             }

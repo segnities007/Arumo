@@ -18,8 +18,8 @@ interface ItemDao {
     suspend fun delete(item: Item)
 
     @Query("SELECT * FROM items WHERE id = :id")
-    suspend fun getItemById(id: Int): Item?
+    suspend fun getItemById(id: Int): Flow<Item?>
 
     @Query("SELECT * FROM items ORDER BY updateAt DESC")
-    fun getAllStorages(): Flow<List<Item>>
+    fun getAllItems(): Flow<List<Item>>
 }

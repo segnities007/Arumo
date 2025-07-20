@@ -18,7 +18,7 @@ interface StorageDao {
     suspend fun delete(storage: Storage)
 
     @Query("SELECT * FROM storages WHERE id = :id")
-    suspend fun getStorageById(id: String): Storage?
+    suspend fun getStorageById(id: String): Flow<Storage?>
 
     @Query("SELECT * FROM storages ORDER BY updateAt DESC")
     fun getAllStorages(): Flow<List<Storage>>
