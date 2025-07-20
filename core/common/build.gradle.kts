@@ -63,7 +63,6 @@ kotlin {
             dependencies {
                 implementation(project(":domain:model"))
                 implementation(project(":data:local"))
-                implementation(project(":data:dto"))
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here
                 implementation("io.insert-koin:koin-core:3.5.6")

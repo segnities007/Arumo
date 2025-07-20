@@ -33,7 +33,6 @@ plugins {
 }
 
 include(":composeApp")
-include(":data:dto")
 include(":data:repository")
 include(":data:local")
 include(":data:remote")

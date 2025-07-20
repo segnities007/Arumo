@@ -1,12 +1,14 @@
 package com.segnities007.repository
 
-import com.segnities007.dto.StorageDao
+import com.segnities007.local.dao.StorageDao
 import com.segnities007.model.Storage
 import kotlinx.coroutines.flow.Flow
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class StorageRepositoryImpl: StorageRepository, KoinComponent {
+class StorageRepositoryImpl :
+    StorageRepository,
+    KoinComponent {
     private val storageDao: StorageDao by inject()
 
     override suspend fun upsertStorage(storage: Storage) {
@@ -17,11 +19,7 @@ class StorageRepositoryImpl: StorageRepository, KoinComponent {
         storageDao.delete(storage)
     }
 
-    override suspend fun getStorageById(id: String): Flow<Storage?> {
-        return storageDao.getStorageById(id)
-    }
+    override suspend fun getStorageById(id: String): Flow<Storage?> = storageDao.getStorageById(id)
 
-    override suspend fun getStorages(): Flow<List<Storage>> {
-        return storageDao.getAllStorages()
-    }
+    override suspend fun getStorages(): Flow<List<Storage>> = storageDao.getAllStorages()
 }
